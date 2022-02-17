@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import bgLogin from "../../public/images/bgLogin.png";
 import axios from "axios";
-
 import { Form, Button, Spinner, Alert, Toast } from "react-bootstrap";
 import { useRouter } from "next/router";
 
@@ -36,7 +33,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [variant, setVariant] = useState("danger");
-  const [msg, setMsg] = useState("halooooo");
+  const [msg, setMsg] = useState("");
   const [show, setShow] = useState(false);
   const [loading, setloading] = useState(false);
 
@@ -56,14 +53,19 @@ function Login() {
     };
 
     axios
-      // .post("https://peaceful-citadel-71310.herokuapp.com/signin", body)
+      .post("http://18.140.1.124:8081/users", body)
       .then(({ data }) => {
-        // console.log(data);
+        console.log(data);
         setShow(true);
         setMsg(data.message);
-        // navigate("");
+        setVariant("success");
+
+        setTimeout(() => {
+          router.push("/user/login");
+        }, 3000);
       })
       .catch((err) => {
+        console.log(err);
         setShow(true);
         setMsg("Invalid Email / Password");
 
