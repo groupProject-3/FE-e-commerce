@@ -1,0 +1,21 @@
+.card {
+  transition: all 0.5s;
+  border: none !important;
+}
+
+.card img {
+  border-radius: 10%;
+}
+
+.card-title,
+.card-text {
+  color: #070606 !important;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card:hover .card-title {
+  color: #005ae2 !important;
+}
