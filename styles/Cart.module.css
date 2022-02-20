@@ -1,0 +1,33 @@
+.cartButton {
+  width: 116px;
+  border-radius: 13px;
+  padding: 8px;
+}
+
+.cartPic {
+  width: 150px;
+  height: 150px;
+}
+
+@media (max-width: 780px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    transition: 0.5s;
+  }
+
+  .mainRow {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cardStatus {
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,51 @@
+.mainContainer {
+  height: 100vh;
+  transition: 0.5s;
+}
+
+.side {
+  transition: 0.05s;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://moneycrashers-sparkchargemedia.netdna-ssl.com/wp-content/uploads/2018/12/great-online-shopping-sites.jpg");
+}
+
+.main {
+  background-color: #ffefe5;
+  transition: 0.5s;
+}
+
+.formContainer {
+  width: 350px;
+}
+
+.userInput {
+  border: #ffffff00 1px solid;
+  height: 50px;
+  background-color: #ffffff00;
+  border-radius: 60px;
+}
+.userInput:focus {
+  background-color: #ffffff00;
+}
+.buttonSubmit {
+  height: 50px;
+  border-radius: 60px;
+}
+
+@media (max-width: 780px) {
+  .side {
+    display: none;
+  }
+  .form {
+    width: 130%;
+  }
+  .main {
+    width: 100%;
+    background-image: linear-gradient(#ffefe5, #17665f);
+  }
+  .buttonSubmit {
+    background-color: darkslategrey;
+  }
+}
