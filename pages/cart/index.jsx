@@ -41,10 +41,15 @@ function Cart() {
     // console.log(payload);
     if (increment) {
       payload.price = +payload.price + +payload.price / +payload.qty;
-      location.reload(true);
+      // setTimeout(() => {
+      //   location.reload(true);
+      // }, 1000);
     } else if (!increment && payload.qty > 1) {
       payload.price = +payload.price - +payload.price / +payload.qty;
-      location.reload(true);
+
+      setTimeout(() => {
+        location.reload(true);
+      }, 1000);
     }
 
     payload.qty = +payload.qty + (increment ? 1 : payload.qty > 1 ? -1 : -0);
@@ -105,7 +110,7 @@ function Cart() {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-    // console.log(action.target.checked);
+    console.log(action.target.checked);
     // console.log(payload.product_id);
     const checktrue = {
       status: "order",
@@ -152,7 +157,9 @@ function Cart() {
     axios
       .delete(`http://18.140.1.124:8081/cart/me/${payload.product_id}`, config)
       .then((data) => {
-        location.reload(true);
+        setTimeout(() => {
+          location.reload(true);
+        }, 1000);
         console.log(data);
       })
       .catch((err) => {
