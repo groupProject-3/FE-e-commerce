@@ -1,38 +1,38 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { Form, Button, Spinner, Toast } from "react-bootstrap";
-import { useRouter } from "next/router";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Form, Button, Spinner, Toast } from 'react-bootstrap';
+import { useRouter } from 'next/router';
 
 // inline css
 
 const form = {
-  marginTop: "190px",
+  marginTop: '190px',
 };
 
 const buttonLogin = {
-  width: "320px",
-  height: "60px",
-  borderRadius: "60px",
+  width: '320px',
+  height: '60px',
+  borderRadius: '60px',
 };
 
 const backgroundLogin = {
-  backgroundColor: "#ffefe5",
-  height: "790px",
+  backgroundColor: '#ffefe5',
+  height: '100vh',
 };
 
 const formLogin = {
-  height: "60px",
-  borderRadius: "50px",
-  backgroundColor: "#ffffff00",
+  height: '60px',
+  borderRadius: '50px',
+  backgroundColor: '#ffffff00',
 };
 
 function Login() {
   const router = useRouter();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [variant, setVariant] = useState("danger");
-  const [msg, setMsg] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [variant, setVariant] = useState('danger');
+  const [msg, setMsg] = useState('');
   const [show, setShow] = useState(false);
   const [loading, setloading] = useState(false);
 
@@ -51,29 +51,29 @@ function Login() {
     };
 
     axios
-      .post(" http://18.140.1.124:8081/login", body)
+      .post(' http://18.140.1.124:8081/login', body)
       .then(({ data }) => {
         console.log(data);
-        localStorage.setItem("token", data.data.token);
+        localStorage.setItem('token', data.data.token);
         setShow(true);
         setMsg(data.message);
-        setVariant("success");
+        setVariant('success');
         setTimeout(() => {
-          router.push("/");
+          router.push('/home');
         }, 3000);
       })
       .catch((err) => {
-        console.log(err, "error");
-        setMsg("Invalid Email / Password");
+        console.log(err, 'error');
+        setMsg('Invalid Email / Password');
         setShow(true);
 
         if (password.length <= 0) {
           setShow(true);
-          setMsg("Password Cannot be Empty");
+          setMsg('Password Cannot be Empty');
         }
         if (email.length <= 0) {
           setShow(true);
-          setMsg("Email Cannot be Empty");
+          setMsg('Email Cannot be Empty');
         }
       })
       .finally(() => {});
@@ -116,7 +116,7 @@ function Login() {
 
   return (
     <>
-      <div style={{ padding: "0px" }} className="container-fluid row">
+      <div style={{ padding: '0px' }} className="container-fluid row">
         <div style={backgroundLogin} className="col-6">
           <div className="">
             <div style={form} className="row justify-content-center">
@@ -161,13 +161,13 @@ function Login() {
                       </Button>
                       <br />
                       <h5 className="mt-3 ms-4 text-center">
-                        Didn’t have account ?{" "}
+                        Didn’t have account ?{' '}
                         <a
                           className="text-decoration-none "
                           href="/user/create"
                         >
                           Register
-                        </a>{" "}
+                        </a>{' '}
                       </h5>
                     </div>
                   </Form.Group>
@@ -177,9 +177,9 @@ function Login() {
           </div>
         </div>
 
-        <div style={{ padding: "0px" }} className="position-relative col-6">
+        <div style={{ padding: '0px' }} className="position-block col-6">
           <img
-            style={{ height: "790px" }}
+            style={{ height: '100vh' }}
             className="position-fixed"
             src="https://moneycrashers-sparkchargemedia.netdna-ssl.com/wp-content/uploads/2018/12/great-online-shopping-sites.jpg"
             alt=""
