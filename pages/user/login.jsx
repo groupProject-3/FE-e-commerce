@@ -37,7 +37,7 @@ function LoginPage() {
         setMsg(data.message);
         setVariant("success");
         setTimeout(() => {
-          router.push("/");
+          router.push("/home");
         }, 3000);
       })
       .catch((err) => {

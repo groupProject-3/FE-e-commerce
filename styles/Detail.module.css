@@ -1,0 +1,133 @@
+.body{
+    line-height: 1.5;
+}
+.wrapper{
+    max-width: 1100px;
+    margin: 0;
+}
+.imgDisplay{
+    overflow: unset;
+}
+.imgShowcase{
+    display: flex;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+.imgShowcase Image{
+    padding-top: 30px;
+    min-width: 100%;
+}
+.img2{
+    width: 100%;
+    display: block;
+}
+
+.detailProduct{
+    padding: 2rem 1rem;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+.produkTitle{
+    font-size: 3rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    position: relative;
+    color: #12263a;
+    margin: 1rem 0;
+}
+.produkTitle::after{
+    content: "";
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 80px;
+    background: #12263a;
+}
+.productPrice{
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.productPrice span{
+    font-weight: 400;
+    color: #256eff;
+}
+.productDetail h2{
+    text-transform: capitalize;
+    color: #12263a;
+    padding-bottom: 0.6rem;
+}
+.productDetail p{
+    font-size: 0.9rem;
+    padding: 0.3rem;
+}
+.addCart{
+    margin: 1.5rem 0;
+    /* margin-left: 5rem; */
+    display: flex;
+}
+
+.addCart .btnAdd{
+    border: 1.5px solid #ddd;
+    border-radius: 25px;
+    text-align: center;
+    padding: 0.45rem 0.8rem;
+    outline: 0;
+    margin-right: 0.2rem;
+    margin-bottom: 1rem;
+}
+.addCart h5{
+    margin-top: 1.2rem;
+    margin-right: 2.5rem;
+    width: 80px;
+    align-items: center;
+}
+.addCart .btnAdd{
+    margin-top: 0.8rem;
+    cursor: pointer;
+    color: #fff;
+}
+.addCart .btnAdd:first-of-type{
+    background: #256eff;
+}
+.addCart .btnAdd:hover{
+    opacity: 0.9;
+}
+
+
+
+
+@media screen and (min-width:920px) {
+    .wrapper{
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .content{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+    }
+    .productImg{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .sameImage{
+        width: 150px;
+        height: 150px;
+    }
+    .img2{
+        padding-top: 5rem;
+        width: 100%;
+        display: block;
+    }
+    
+    
+}

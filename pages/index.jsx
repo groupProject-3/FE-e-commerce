@@ -1,7 +1,12 @@
-export default function Home() {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  );
+import React from "react";
+import { useEffect } from "react";
+import Router, { useRouter } from "next/router";
+function index() {
+  useEffect(() => {
+    Router.push("user/login");
+  }, []);
+
+  return <div></div>;
 }
+
+export default index;

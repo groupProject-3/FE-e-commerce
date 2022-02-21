@@ -1,4 +1,10 @@
-.container {
+.btn-dark:hover {
+  background-color: #005ae2;
+  border-color: #005ae2;
+  box-shadow: 2px 2px 1px #333333;
+}
+
+/* .container {
   padding: 0 2rem;
 }
 
@@ -113,4 +119,4 @@
     width: 100%;
     flex-direction: column;
   }
-}
+} */

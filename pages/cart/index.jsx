@@ -5,6 +5,11 @@ import { useRouter } from "next/router";
 import styles from "../../styles/Cart.module.css";
 
 function Cart() {
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      router.push("../user/login");
+    }
+  }, []);
   const router = useRouter();
   const [resetPrice, setresetPrice] = useState(0);
   const [totalprice, setTotalprice] = useState(0);
@@ -18,7 +23,7 @@ function Cart() {
     };
 
     axios
-      .get("http://18.140.1.124:8081/cart/me/status/cart", config)
+      .get("http://18.140.1.124:8081/cart/me/status/unpayed", config)
       .then(({ data }) => {
         setListCart(data.data);
       })
@@ -41,15 +46,10 @@ function Cart() {
     // console.log(payload);
     if (increment) {
       payload.price = +payload.price + +payload.price / +payload.qty;
-      // setTimeout(() => {
-      //   location.reload(true);
-      // }, 1000);
+      location.reload(true);
     } else if (!increment && payload.qty > 1) {
       payload.price = +payload.price - +payload.price / +payload.qty;
-
-      setTimeout(() => {
-        location.reload(true);
-      }, 1000);
+      location.reload(true);
     }
 
     payload.qty = +payload.qty + (increment ? 1 : payload.qty > 1 ? -1 : -0);
@@ -110,12 +110,14 @@ function Cart() {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-    console.log(action.target.checked);
+    // console.log(action.target.checked);
     // console.log(payload.product_id);
     const checktrue = {
+      qty: payload.qty,
       status: "order",
     };
     const checkfalse = {
+      qty: payload.qty,
       status: "cart",
     };
     if (action.target.checked === true) {
@@ -157,9 +159,7 @@ function Cart() {
     axios
       .delete(`http://18.140.1.124:8081/cart/me/${payload.product_id}`, config)
       .then((data) => {
-        setTimeout(() => {
-          location.reload(true);
-        }, 1000);
+        location.reload(true);
         console.log(data);
       })
       .catch((err) => {
@@ -180,7 +180,8 @@ function Cart() {
     axios
       .post("http://18.140.1.124:8081/order/me", payment, config)
       .then((data) => {
-        router.push("/");
+        alert("Success Checkout Items");
+        router.push("/payment");
         console.log(data);
       })
       .catch((err) => {

@@ -1,0 +1,28 @@
+.content{
+    padding-top: 5rem;
+    margin: 0;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+.squareOvo{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 13px;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.1);
+    width: 900px;
+    border-radius: 20px;
+}
+
+/* .detailOrder{
+    display: flex;
+    justify-content: center;
+} */
+.boxOrder{
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.1);
+    height: auto;
+    border-radius: 20px;
+}
